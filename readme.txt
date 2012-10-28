@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-
 Plugin URI: http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
 Tags: Wordpress, Plugin, Content, Text, Slider
 Requires at least: 3.0
-Tested up to: 3.4.1
-Stable tag: 4.0
+Tested up to: 3.4.2
+Stable tag: 5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -97,6 +97,10 @@ Slight change in the short code, Please find the new short code for your slider.
 
 New demo link
 
+= 5.0 =
+
+Tested up to: 3.4.2
+
 == Changelog ==
 
 = 1.0 =			
@@ -115,3 +119,7 @@ Slight change in the short code, Please find the new short code for your slider.
 = 4.0 =
 
 New demo link
+
+= 5.0 =
+
+Tested up to: 3.4.2
