@@ -1,6 +1,6 @@
 /**
  *     content text slider on post
- *     Copyright (C) 2012  www.gopiplus.com
+ *     Copyright (C) 2011 - 2013 www.gopiplus.com
  * 
  *     This program is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -26,12 +26,6 @@ function ctsop_submit()
 		document.ctsop_form.ctsop_text.focus();
 		return false;
 	}
-	//else if(document.ctsop_form.ctsop_link.value=="")
-//	{
-//		alert("Please enter the link.")
-//		document.ctsop_form.ctsop_link.focus();
-//		return false;
-//	}
 	else if(document.ctsop_form.ctsop_status.value=="")
 	{
 		alert("Please select the display status.")
