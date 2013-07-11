@@ -5,7 +5,7 @@ Plugin Name: Content text slider on post
 Plugin URI: http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
 Description: Content text slider on post is a WordPress plugin from gopiplus.com website. We can use this plugin to scroll the content vertically in the posts and pages. We have option to enter content title, description and link for the content. All entered details scroll vertically into the posts and pages.
 Author: Gopi.R
-Version: 5.1
+Version: 6.0
 Author URI: http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
 Donate link: http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
 Tags: Wordpress, plugin, Content, Text, Slider
@@ -15,6 +15,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 global $wpdb, $wp_version;
 define("WP_ctsop_TABLE", $wpdb->prefix . "ctsop_plugin");
+define("WP_ctsop_UNIQUE_NAME", "content-text-slider-on-post");
+define("WP_ctsop_TITLE", "Content text slider on post");
+define('WP_ctsop_FAV', 'http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/');
+define('WP_ctsop_LINK', 'Check official website for more information <a target="_blank" href="'.WP_ctsop_FAV.'">click here</a>');
 
 function ctsop_add_javascript_files() 
 {
@@ -43,7 +47,7 @@ function ctsop_install()
 			  PRIMARY KEY  (`ctsop_id`) )
 			");
 		$iIns = "INSERT INTO `". WP_ctsop_TABLE . "` (`ctsop_title`, `ctsop_text`, `ctsop_link`, `ctsop_order`, `ctsop_status`, `ctsop_group`, `ctsop_date`)"; 
-		$DummyTitle = "WordPress Plugin";
+		$DummyTitle = "Lorem Ipsum is simply dummy.";
 		$DummyText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
 		$DummyLink = "http://www.gopiplus.com/work/";
 		$DummyImg = '<img src="'.get_option('siteurl').'/wp-content/plugins/content-text-slider-on-post/images/100x100_1.jpg" style="float:left;padding:5px;" /> '. $DummyText;
@@ -69,110 +73,22 @@ function ctsop_install()
 function ctsop_admin_options() 
 {
 	global $wpdb;
-	?>
-<div class="wrap">
-  <h2>Content text slider on post</h2>
-</div>
-<?php
-	$ctsop_height_display_length_s1 = get_option('ctsop_height_display_length_s1');
-	$ctsop_height_display_length_s2 = get_option('ctsop_height_display_length_s2');
-	$ctsop_height_display_length_s3 = get_option('ctsop_height_display_length_s3');
-	
-	$ctsop_height_display_length_s1_new = explode("_", $ctsop_height_display_length_s1);
-	$ctsop_height_1 = @$ctsop_height_display_length_s1_new[0];
-	$ctsop_display_1 = @$ctsop_height_display_length_s1_new[1];
-	$ctsop_length_1 = @$ctsop_height_display_length_s1_new[2];
-	
-	$ctsop_height_display_length_s2 = explode("_", $ctsop_height_display_length_s2);
-	$ctsop_height_2 = @$ctsop_height_display_length_s2[0];
-	$ctsop_display_2 = @$ctsop_height_display_length_s2[1];
-	$ctsop_length_2 = @$ctsop_height_display_length_s2[2];
-	
-	$ctsop_height_display_length_s3 = explode("_", $ctsop_height_display_length_s3);
-	$ctsop_height_3 = @$ctsop_height_display_length_s3[0];
-	$ctsop_display_3 = @$ctsop_height_display_length_s3[1];
-	$ctsop_length_3 = @$ctsop_height_display_length_s3[2];
-	
-	if (@$_POST['ctsop_submit']) 
+	$current_page = isset($_GET['ac']) ? $_GET['ac'] : '';
+	switch($current_page)
 	{
-		$ctsop_height_1 = stripslashes($_POST['ctsop_height_1']);
-		$ctsop_display_1 = stripslashes($_POST['ctsop_display_1']);
-		$ctsop_length_1 = stripslashes($_POST['ctsop_length_1']);
-		
-		$ctsop_height_2 = stripslashes($_POST['ctsop_height_2']);
-		$ctsop_display_2 = stripslashes($_POST['ctsop_display_2']);
-		$ctsop_length_2 = stripslashes($_POST['ctsop_length_2']);
-		
-		$ctsop_height_3 = stripslashes($_POST['ctsop_height_3']);
-		$ctsop_display_3 = stripslashes($_POST['ctsop_display_3']);
-		$ctsop_length_3 = stripslashes($_POST['ctsop_length_3']);
-		
-		$ctsop_height_display_length_s1 = $ctsop_height_1 . "_" . $ctsop_display_1. "_" . $ctsop_length_1;
-		$ctsop_height_display_length_s2 = $ctsop_height_2 . "_" . $ctsop_display_2. "_" . $ctsop_length_2;
-		$ctsop_height_display_length_s3 = $ctsop_height_3 . "_" . $ctsop_display_3. "_" . $ctsop_length_3;
-		
-		update_option('ctsop_height_display_length_s1', $ctsop_height_display_length_s1 );
-		update_option('ctsop_height_display_length_s2', $ctsop_height_display_length_s2 );
-		update_option('ctsop_height_display_length_s3', $ctsop_height_display_length_s3 );
-		
+		case 'edit':
+			include('pages/content-edit.php');
+			break;
+		case 'add':
+			include('pages/content-add.php');
+			break;
+		case 'set':
+			include('pages/content-setting.php');
+			break;
+		default:
+			include('pages/content-show.php');
+			break;
 	}
-	
-	?>
-<form name="ctsop_form" method="post" action="">
-<table width="620" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td colspan="3"><h3>Setting 1</h3></td>
-  </tr>
-  <tr>
-    <td>Each Record Height</td>
-    <td>Display Records #</td>
-    <td>Text Length</td>
-  </tr>
-  <tr>
-    <td><input  style="width: 100px;" type="text" value="<?php echo @$ctsop_height_1; ?>" name="ctsop_height_1" id="ctsop_height_1" /></td>
-    <td><input  style="width: 100px;" type="text" value="<?php echo @$ctsop_display_1; ?>" name="ctsop_display_1" id="ctsop_display_1" /></td>
-    <td><input  style="width: 100px;" type="text" value="<?php echo @$ctsop_length_1; ?>" name="ctsop_length_1" id="ctsop_length_1" /></td>
-  </tr>
-  <tr>
-    <td colspan="3"><h3>Setting 2</h3></td>
-  </tr>
-  <tr>
-    <td>Each Record Height</td>
-    <td>Display Records #</td>
-    <td>Text Length</td>
-  </tr>
-  <tr>
-    <td><input  style="width: 100px;" type="text" value="<?php echo @$ctsop_height_2; ?>" name="ctsop_height_2" id="ctsop_height_2" /></td>
-    <td><input  style="width: 100px;" type="text" value="<?php echo @$ctsop_display_2; ?>" name="ctsop_display_2" id="ctsop_display_2" /></td>
-    <td><input  style="width: 100px;" type="text" value="<?php echo @$ctsop_length_2; ?>" name="ctsop_length_2" id="ctsop_length_2" /></td>
-  </tr>
-  <tr>
-    <td colspan="3"><h3>Setting 3</h3></td>
-  </tr>
-  <tr>
-    <td>Each Record Height</td>
-    <td>Display Records #</td>
-    <td>Text Length</td>
-  </tr>
-  <tr>
-    <td><input  style="width: 100px;" type="text" value="<?php echo @$ctsop_height_3; ?>" name="ctsop_height_3" id="ctsop_height_3" /></td>
-    <td><input  style="width: 100px;" type="text" value="<?php echo @$ctsop_display_3; ?>" name="ctsop_display_3" id="ctsop_display_3" /></td>
-    <td><input  style="width: 100px;" type="text" value="<?php echo @$ctsop_length_3; ?>" name="ctsop_length_3" id="ctsop_length_3" /></td>
-  </tr>
-   <tr>
-    <td colspan="3" height="40" align="left"><input name="ctsop_submit" id="ctsop_submit" lang="publish" class="button-primary" value="Update All Settings" type="Submit" /></td>
-  </tr>
-</table>
-</form>
-<table width="100%">
-  <tr>
-    <td align="right">
-    <input name="text_management" lang="text_management" class="button-primary" onClick="location.href='options-general.php?page=content-text-slider-on-post/content-management.php'" value="Go to - Text Management Page" type="button" />
-    <input name="setting_management" lang="setting_management" class="button-primary" onClick="location.href='options-general.php?page=content-text-slider-on-post/content-text-slider-on-post.php'" value="Go to - Setting Page" type="button" /></td>
-  </tr>
-</table>
-<?php include_once("help.php"); ?>
-<?php
 }
 
 function ctsop_Group($number) 
@@ -287,9 +203,9 @@ function ctsop_shortcode( $atts )
 		foreach ( $ctsop_data as $ctsop_data ) 
 		{
 			//$IR_path = mysql_real_escape_string(trim($ctsop_data->IR_path));
-			$ctsop_link = mysql_real_escape_string(trim($ctsop_data->ctsop_link));
+			$ctsop_link = trim($ctsop_data->ctsop_link);
 			$ctsop_target = "_blank";
-			$ctsop_title = mysql_real_escape_string(trim($ctsop_data->ctsop_title));
+			$ctsop_title = trim($ctsop_data->ctsop_title);
 			$ctsop_text = trim($ctsop_data->ctsop_text);
 			
 			if(is_numeric($ctsop_textlength))
@@ -402,8 +318,7 @@ function ctsop_add_to_menu()
 {
 	if (is_admin()) 
 	{
-		add_options_page('Content text slider on post', 'Content text slider on post', 'manage_options', __FILE__, 'ctsop_admin_options' );
-		add_options_page('Content text slider on post', '', 'manage_options', "content-text-slider-on-post/content-management.php",'' );
+		add_options_page('Content text slider', 'Content text slider', 'manage_options', 'content-text-slider-on-post', 'ctsop_admin_options' );
 	}
 }
 

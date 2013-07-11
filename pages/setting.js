@@ -28,25 +28,25 @@ function ctsop_submit()
 	}
 	else if(document.ctsop_form.ctsop_status.value=="")
 	{
-		alert("Please select the display status.")
+		alert("Please select display status.")
 		document.ctsop_form.ctsop_status.focus();
 		return false;
 	}
 	else if(document.ctsop_form.ctsop_group.value=="")
 	{
-		alert("Please enter/select the group name. this field is used to group the message.")
+		alert("Please select group name. this field is used to group the message.")
 		document.ctsop_form.ctsop_group.focus();
 		return false;
 	}
 	else if(document.ctsop_form.ctsop_order.value=="")
 	{
-		alert("Please enter the display order, only number.")
+		alert("Please enter display order, only number.")
 		document.ctsop_form.ctsop_order.focus();
 		return false;
 	}
 	else if(isNaN(document.ctsop_form.ctsop_order.value))
 	{
-		alert("Please enter the display order, only number.")
+		alert("Please enter display order, only number.")
 		document.ctsop_form.ctsop_order.focus();
 		document.ctsop_form.ctsop_order.select();
 		return false;
@@ -54,18 +54,18 @@ function ctsop_submit()
 	_ctsop_escapeVal(document.ctsop_form.ctsop_text,'<br>');
 }
 
-function _ctsop_delete(id)
+function ctsop_delete(id)
 {
 	if(confirm("Do you want to delete this record?"))
 	{
-		document.ctsop_Display.action="options-general.php?page=content-text-slider-on-post/content-management.php&AC=DEL&DID="+id;
-		document.ctsop_Display.submit();
+		document.frm_ctsop_display.action="options-general.php?page=content-text-slider-on-post&ac=del&did="+id;
+		document.frm_ctsop_display.submit();
 	}
 }	
 
-function _ctsop_redirect()
+function ctsop_redirect()
 {
-	window.location = "options-general.php?page=content-text-slider-on-post/content-management.php";
+	window.location = "options-general.php?page=content-text-slider-on-post";
 }
 
 function _ctsop_help()
