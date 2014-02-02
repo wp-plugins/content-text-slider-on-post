@@ -13,7 +13,7 @@ $result = $wpdb->get_var($sSql);
 
 if ($result != '1')
 {
-	?><div class="error fade"><p><strong>Oops, selected details doesn't exist.</strong></p></div><?php
+	?><div class="error fade"><p><strong><?php _e('Oops, selected details doesnt exist', 'content-text-slider'); ?></strong></p></div><?php
 }
 else
 {
@@ -59,13 +59,13 @@ if (isset($_POST['ctsop_form_submit']) && $_POST['ctsop_form_submit'] == 'yes')
 	
 	if ($form['ctsop_text'] == '')
 	{
-		$ctsop_errors[] = __('Please enter the message.', ctsop_UNIQUE_NAME);
+		$ctsop_errors[] = __('Please enter the message.', 'content-text-slider');
 		$ctsop_error_found = TRUE;
 	}
 	
 	if ($form['ctsop_group'] == '')
 	{
-		$ctsop_errors[] = __('Please enter title.select your group.', ctsop_UNIQUE_NAME);
+		$ctsop_errors[] = __('Please select your group.', 'content-text-slider');
 		$ctsop_error_found = TRUE;
 	}
 
@@ -86,7 +86,7 @@ if (isset($_POST['ctsop_form_submit']) && $_POST['ctsop_form_submit'] == 'yes')
 			);
 		$wpdb->query($sSql);
 		
-		$ctsop_success = 'Details was successfully updated.';
+		$ctsop_success = __('Details was successfully updated.', 'content-text-slider');
 	}
 }
 
@@ -102,40 +102,41 @@ if ($ctsop_error_found == FALSE && strlen($ctsop_success) > 0)
 {
 ?>
   <div class="updated fade">
-    <p><strong><?php echo $ctsop_success; ?> <a href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=content-text-slider-on-post">Click here</a> to view the details</strong></p>
+    <p><strong><?php echo $ctsop_success; ?> 
+	<a href="<?php echo WP_ctsop_ADMIN_URL; ?>"><?php _e('Click here to view the details', 'content-text-slider'); ?></a></strong></p>
   </div>
   <?php
 }
 ?>
-<script language="JavaScript" src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/content-text-slider-on-post/pages/setting.js"></script>
-<script language="JavaScript" src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/content-text-slider-on-post/pages/noenter.js"></script>
+<script language="JavaScript" src="<?php echo WP_ctsop_PLUGIN_URL; ?>/pages/setting.js"></script>
+<script language="JavaScript" src="<?php echo WP_ctsop_PLUGIN_URL; ?>/pages/noenter.js"></script>
 <div class="form-wrap">
 	<div id="icon-edit" class="icon32 icon32-posts-post"><br></div>
-	<h2><?php echo WP_ctsop_TITLE; ?></h2>
+	<h2><?php _e('Content text slider on post', 'content-text-slider'); ?></h2>
 	<form name="ctsop_form" method="post" action="#" onsubmit="return ctsop_submit()"  >
-      <h3>Update details</h3>
+      <h3><?php _e('Update Details', 'content-text-slider'); ?></h3>
 	  
-		<label for="tag-title">Title</label>
+		<label for="tag-title"><?php _e('Title', 'content-text-slider'); ?></label>
 		<input name="ctsop_title" type="text" id="ctsop_title" value="<?php echo esc_html(stripslashes($form['ctsop_title'])); ?>" size="103" />
-		<p>Enter your title.</p>
+		<p><?php _e('Enter your title.', 'content-text-slider'); ?></p>
 		
-		<label for="tag-title">Message/Content</label>
+		<label for="tag-title"><?php _e('Message/Content', 'content-text-slider'); ?></label>
 		<textarea name="ctsop_text" id="ctsop_text" cols="100" rows="5"><?php echo esc_html(stripslashes($form['ctsop_text'])); ?></textarea>
-		<p>Enter your message/content.</p>
+		<p><?php _e('Enter your message/content.', 'content-text-slider'); ?></p>
 		
-		<label for="tag-title">Link</label>
+		<label for="tag-title"><?php _e('Link', 'content-text-slider'); ?></label>
 		<input name="ctsop_link" type="text" id="ctsop_link" value="<?php echo esc_html(stripslashes($form['ctsop_link'])); ?>" size="103" />
-		<p>Enter your link.</p>
+		<p><?php _e('Enter your link.', 'content-text-slider'); ?></p>
 	  
-	  	<label for="tag-title">Display status</label>
+	  	<label for="tag-title"><?php _e('Display status', 'content-text-slider'); ?></label>
 		<select name="ctsop_status" id="ctsop_status">
 			<option value="">Select</option>
             <option value='YES' <?php if($form['ctsop_status'] == 'YES') { echo "selected='selected'" ; } ?>>Yes</option>
             <option value='NO' <?php if($form['ctsop_status'] == 'NO') { echo "selected='selected'" ; } ?>>No</option>
           </select>
-		<p>Do you want to show this message in the slider?</p>
+		<p><?php _e('Do you want to show this message in the slider?', 'content-text-slider'); ?></p>
 		
-		<label for="tag-title">Group name</label>
+		<label for="tag-title"><?php _e('Group name', 'content-text-slider'); ?></label>
 		<select name="ctsop_group" id="ctsop_group">
 		<option value="">Select</option>
 		<?php
@@ -144,6 +145,7 @@ if ($ctsop_error_found == FALSE && strlen($ctsop_success) > 0)
 		$arrDistinctDatas = array();
 		$myDistinctData = $wpdb->get_results($sSql, ARRAY_A);
 		$i = 0;
+		$selected = "";
 		foreach ($myDistinctData as $DistinctData)
 		{
 			$arrDistinctData[$i]["ctsop_group"] = strtoupper($DistinctData['ctsop_group']);
@@ -169,19 +171,22 @@ if ($ctsop_error_found == FALSE && strlen($ctsop_success) > 0)
 		</select>
 		<p></p>
 		
-		<label for="tag-title">Order</label>
+		<label for="tag-title"><?php _e('Order', 'content-text-slider'); ?></label>
 		<input name="ctsop_order" type="text" id="ctsop_order" value="<?php echo $form['ctsop_order']; ?>" maxlength="3" />
-		<p>Enter your display order, only number.</p>
+		<p><?php _e('Enter your display order, only number.', 'content-text-slider'); ?></p>
 	  
       <input name="ctsop_id" id="ctsop_id" type="hidden" value="<?php echo $form['ctsop_id']; ?>">
       <input type="hidden" name="ctsop_form_submit" value="yes"/>
       <p class="submit">
-        <input name="publish" lang="publish" class="button add-new-h2" value="Update Details" type="submit" />&nbsp;
-        <input name="publish" lang="publish" class="button add-new-h2" onclick="ctsop_redirect()" value="Cancel" type="button" />&nbsp;
-        <input name="Help" lang="publish" class="button add-new-h2" onclick="ctsop_help()" value="Help" type="button" />
+        <input name="publish" lang="publish" class="button add-new-h2" value="<?php _e('Update Details', 'content-text-slider'); ?>" type="submit" />&nbsp;
+        <input name="publish" lang="publish" class="button add-new-h2" onclick="ctsop_redirect()" value="<?php _e('Cancel', 'content-text-slider'); ?>" type="button" />&nbsp;
+        <input name="Help" lang="publish" class="button add-new-h2" onclick="ctsop_help()" value="<?php _e('Help', 'content-text-slider'); ?>" type="button" />
       </p>
 	  <?php wp_nonce_field('ctsop_form_edit'); ?>
     </form>
 </div>
-<p class="description"><?php echo WP_ctsop_LINK; ?></p>
+<p class="description">
+	<?php _e('Check official website for more information', 'content-text-slider'); ?>
+	<a target="_blank" href="<?php echo WP_ctsop_FAV; ?>"><?php _e('click here', 'content-text-slider'); ?></a>
+</p>
 </div>

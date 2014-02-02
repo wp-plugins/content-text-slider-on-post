@@ -1,11 +1,10 @@
 <?php
-
 /*
 Plugin Name: Content text slider on post
 Plugin URI: http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
 Description: Content text slider on post is a WordPress plugin from gopiplus.com website. We can use this plugin to scroll the content vertically in the posts and pages. We have option to enter content title, description and link for the content. All entered details scroll vertically into the posts and pages.
 Author: Gopi.R
-Version: 6.0
+Version: 6.1
 Author URI: http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
 Donate link: http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
 Tags: Wordpress, plugin, Content, Text, Slider
@@ -15,23 +14,31 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 global $wpdb, $wp_version;
 define("WP_ctsop_TABLE", $wpdb->prefix . "ctsop_plugin");
-define("WP_ctsop_UNIQUE_NAME", "content-text-slider-on-post");
-define("WP_ctsop_TITLE", "Content text slider on post");
 define('WP_ctsop_FAV', 'http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/');
-define('WP_ctsop_LINK', 'Check official website for more information <a target="_blank" href="'.WP_ctsop_FAV.'">click here</a>');
+
+if ( ! defined( 'WP_ctsop_BASENAME' ) )
+	define( 'WP_ctsop_BASENAME', plugin_basename( __FILE__ ) );
+	
+if ( ! defined( 'WP_ctsop_PLUGIN_NAME' ) )
+	define( 'WP_ctsop_PLUGIN_NAME', trim( dirname( WP_ctsop_BASENAME ), '/' ) );
+	
+if ( ! defined( 'WP_ctsop_PLUGIN_URL' ) )
+	define( 'WP_ctsop_PLUGIN_URL', WP_PLUGIN_URL . '/' . WP_ctsop_PLUGIN_NAME );
+	
+if ( ! defined( 'WP_ctsop_ADMIN_URL' ) )
+	define( 'WP_ctsop_ADMIN_URL', get_option('siteurl') . '/wp-admin/options-general.php?page=content-text-slider-on-post' );
 
 function ctsop_add_javascript_files() 
 {
 	if (!is_admin())
 	{
-		wp_enqueue_script( 'content-text-slider-on-post', get_option('siteurl').'/wp-content/plugins/content-text-slider-on-post/content-text-slider-on-post.js');
+		wp_enqueue_script( 'content-text-slider-on-post', WP_ctsop_PLUGIN_URL.'/content-text-slider-on-post.js');
 	}	
 }
 
 function ctsop_install() 
 {
 	global $wpdb;
-	
 	if($wpdb->get_var("show tables like '". WP_ctsop_TABLE . "'") != WP_ctsop_TABLE) 
 	{
 		$wpdb->query("
@@ -44,7 +51,7 @@ function ctsop_install()
 			  `ctsop_status` char(3) NOT NULL default 'No',
 			  `ctsop_group` VARCHAR( 100 ) NOT NULL,
 			  `ctsop_date` datetime NOT NULL default '0000-00-00 00:00:00',
-			  PRIMARY KEY  (`ctsop_id`) )
+			  PRIMARY KEY  (`ctsop_id`) ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 			");
 		$iIns = "INSERT INTO `". WP_ctsop_TABLE . "` (`ctsop_title`, `ctsop_text`, `ctsop_link`, `ctsop_order`, `ctsop_status`, `ctsop_group`, `ctsop_date`)"; 
 		$DummyTitle = "Lorem Ipsum is simply dummy.";
@@ -63,7 +70,6 @@ function ctsop_install()
 		$sSql = $iIns . "VALUES ('$DummyTitle', '$DummyText' ,'$DummyLink', '5', 'YES', 'GROUP2', '0000-00-00 00:00:00');";
 		$wpdb->query($sSql);
 	}
-	
 	add_option('ctsop_height_display_length_s1', "200_2_500");
 	add_option('ctsop_height_display_length_s2', "190_1_500");
 	add_option('ctsop_height_display_length_s3', "190_3_500");	
@@ -176,16 +182,16 @@ function ctsop_shortcode( $atts )
 	$ctsop_sametimedisplay = @$ctsop_height_display_length[1];
 	$ctsop_textlength = @$ctsop_height_display_length[2];
 	
-	if(!is_numeric(@$ctsop_textlength)){ @$ctsop_textlength = 250; }
-	if(!is_numeric(@$ctsop_sametimedisplay)){ @$ctsop_sametimedisplay = 2; }
-	if(!is_numeric(@$ctsop_scrollheight)){ @$ctsop_scrollheight = 150; }
+	if(!is_numeric($ctsop_textlength)){ $ctsop_textlength = 250; }
+	if(!is_numeric($ctsop_sametimedisplay)){ $ctsop_sametimedisplay = 2; }
+	if(!is_numeric($ctsop_scrollheight)){ $ctsop_scrollheight = 150; }
 	
 	$sSql = "select ctsop_id,ctsop_title,ctsop_text,ctsop_link from ".WP_ctsop_TABLE." where 1=1 and ctsop_status='YES'";
-	if(@$ctsop_group == "ALL" ) 
+	if($ctsop_group == "ALL" ) 
 	{ 
 		// display all
 	}
-	elseif(@$ctsop_group != "" ) 
+	elseif($ctsop_group != "" ) 
 	{ 
 		$sSql = $sSql . " and ctsop_group='".$ctsop_group."'"; 
 	}
@@ -285,32 +291,35 @@ function ctsop_shortcode( $atts )
 			$ctsop_count = $ctsop_count;
 			$ctsop_scrollheight_New = ($ctsop_count  * $ctsop_scrollheight);
 		}
+		
+		$ctsop = "";
+		$ctsop = $ctsop . '<div style="padding-top:8px;padding-bottom:8px;">';
+		$ctsop = $ctsop . '<div style="text-align:left;vertical-align:middle;text-decoration: none;overflow: hidden; position: relative; margin-left: 3px; height: '. @$ctsop_scrollheight .'px;" id="IRHolder">'.@$ctsop_html.'</div>';
+		$ctsop = $ctsop . '</div>';
+		$ctsop = $ctsop . '<script type="text/javascript">';
+		$ctsop = $ctsop . 'var ctsop = new Array();';
+		$ctsop = $ctsop . "var objctsop	= '';";
+		$ctsop = $ctsop . "var ctsop_scrollPos 	= '';";
+		$ctsop = $ctsop . "var ctsop_numScrolls	= '';";
+		$ctsop = $ctsop . 'var ctsop_heightOfElm = '. @$ctsop_scrollheight. ';';
+		$ctsop = $ctsop . 'var ctsop_numberOfElm = '. @$ctsop_count. ';';
+		$ctsop = $ctsop . "var ctsop_scrollOn 	= 'true';";
+		$ctsop = $ctsop . 'function ctsopScroll() ';
+		$ctsop = $ctsop . '{';
+		$ctsop = $ctsop . @$ctsop_x;
+		$ctsop = $ctsop . "objctsop	= document.getElementById('IRHolder');";
+		$ctsop = $ctsop . "objctsop.style.height = (ctsop_numberOfElm * ctsop_heightOfElm) + 'px';";
+		$ctsop = $ctsop . 'ctsopContent();';
+		$ctsop = $ctsop . '}';
+		$ctsop = $ctsop . '</script>';
+		$ctsop = $ctsop . '<script type="text/javascript">';
+		$ctsop = $ctsop . 'ctsopScroll();';
+		$ctsop = $ctsop . '</script>';
 	}
-	
-	$ctsop = "";
-	$ctsop = $ctsop . '<div style="padding-top:8px;padding-bottom:8px;">';
-	$ctsop = $ctsop . '<div style="text-align:left;vertical-align:middle;text-decoration: none;overflow: hidden; position: relative; margin-left: 3px; height: '. @$ctsop_scrollheight .'px;" id="IRHolder">'.@$ctsop_html.'</div>';
-	$ctsop = $ctsop . '</div>';
-	$ctsop = $ctsop . '<script type="text/javascript">';
-	$ctsop = $ctsop . 'var ctsop = new Array();';
-	$ctsop = $ctsop . "var objctsop	= '';";
-	$ctsop = $ctsop . "var ctsop_scrollPos 	= '';";
-	$ctsop = $ctsop . "var ctsop_numScrolls	= '';";
-	$ctsop = $ctsop . 'var ctsop_heightOfElm = '. @$ctsop_scrollheight. ';';
-	$ctsop = $ctsop . 'var ctsop_numberOfElm = '. @$ctsop_count. ';';
-	$ctsop = $ctsop . "var ctsop_scrollOn 	= 'true';";
-	$ctsop = $ctsop . 'function ctsopScroll() ';
-	$ctsop = $ctsop . '{';
-	$ctsop = $ctsop . @$ctsop_x;
-	$ctsop = $ctsop . "objctsop	= document.getElementById('IRHolder');";
-	$ctsop = $ctsop . "objctsop.style.height = (ctsop_numberOfElm * ctsop_heightOfElm) + 'px';";
-	$ctsop = $ctsop . 'ctsopContent();';
-	$ctsop = $ctsop . '}';
-	$ctsop = $ctsop . '</script>';
-	$ctsop = $ctsop . '<script type="text/javascript">';
-	$ctsop = $ctsop . 'ctsopScroll();';
-	$ctsop = $ctsop . '</script>';
-	
+	else
+	{
+		$ctsop = "No data available. Please check your short code.";
+	}
 	return $ctsop;
 }
 
@@ -318,7 +327,8 @@ function ctsop_add_to_menu()
 {
 	if (is_admin()) 
 	{
-		add_options_page('Content text slider', 'Content text slider', 'manage_options', 'content-text-slider-on-post', 'ctsop_admin_options' );
+		add_options_page(__('Content text slider', 'content-text-slider'), 
+							__('Content text slider', 'content-text-slider'), 'manage_options', 'content-text-slider-on-post', 'ctsop_admin_options' );
 	}
 }
 
@@ -327,6 +337,12 @@ function ctsop_deactivation()
 	// No action required.
 }
 
+function ctsop_textdomain() 
+{
+	  load_plugin_textdomain( 'content-text-slider', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
+
+add_action('plugins_loaded', 'ctsop_textdomain');
 add_action('wp_enqueue_scripts', 'ctsop_add_javascript_files');
 register_activation_hook(__FILE__, 'ctsop_install');
 register_deactivation_hook(__FILE__, 'ctsop_deactivation');
