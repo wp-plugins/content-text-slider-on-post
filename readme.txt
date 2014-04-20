@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-
 Plugin URI: http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
 Tags: Wordpress, Plugin, Content, Text, Slider
 Requires at least: 3.2
-Tested up to: 3.8
-Stable tag: 6.1
+Tested up to: 3.9
+Stable tag: 6.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -29,12 +29,6 @@ Use the given short code in the pages and posts.
 
 http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
 
-CTSOP= This is default text.
-GROUP1 = This is your group name (Option available in the text management page)
-SETTING1 = This is name of your setting, we have 3 setting option available in the admin.
-
-Tags: Wordpress, plugin, Content, Text, Slider
-	
 == Installation ==	
 
 **Installation Instruction & Configuration**  	
@@ -74,9 +68,9 @@ http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-pl
 
 == Screenshots ==
 
-1. http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
+1. Front Page Demo. http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
 
-2. http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
+2. Plugin Admin Page. http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
 
 == Upgrade Notice ==
 
@@ -117,6 +111,11 @@ New admin layout.
 2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
 Plugin *.po file (content-text-slider.po) available in the languages folder.
 
+= 6.2 =
+
+1. Tested up to 3.9
+2. Added little security feature.
+
 == Changelog ==
 
 = 1.0 =			
@@ -155,3 +154,8 @@ New admin layout.
 1. Tested up to 3.8
 2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
 Plugin *.po file (content-text-slider.po) available in the languages folder.
+
+= 6.2 =
+
+1. Tested up to 3.9
+2. Added little security feature.

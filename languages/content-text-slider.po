@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Content text slider on post\n"
-"POT-Creation-Date: 2014-02-01 22:23+0800\n"
-"PO-Revision-Date: 2014-02-01 22:23+0800\n"
+"POT-Creation-Date: 2014-04-19 00:33+0800\n"
+"PO-Revision-Date: 2014-04-19 00:33+0800\n"
 "Last-Translator: \n"
 "Language-Team: www.gopiplus.com <www.gopiplus.com>\n"
 "MIME-Version: 1.0\n"
@@ -13,211 +13,211 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../content-text-slider-on-post.php:330
-#: ../content-text-slider-on-post.php:331
+#: ../content-text-slider-on-post.php:332
+#: ../content-text-slider-on-post.php:333
 msgid "Content text slider"
 msgstr ""
 
-#: ../pages/content-add.php:27 ../pages/content-edit.php:62
+#: ../pages/content-add.php:28 ../pages/content-edit.php:63
 msgid "Please enter the message."
 msgstr ""
 
-#: ../pages/content-add.php:37 ../pages/content-edit.php:68
+#: ../pages/content-add.php:38 ../pages/content-edit.php:69
 msgid "Please select your group."
 msgstr ""
 
-#: ../pages/content-add.php:54
+#: ../pages/content-add.php:55
 msgid "New details was successfully added."
 msgstr ""
 
-#: ../pages/content-add.php:82 ../pages/content-edit.php:106
+#: ../pages/content-add.php:83 ../pages/content-edit.php:107
 msgid "Click here to view the details"
 msgstr ""
 
-#: ../pages/content-add.php:91 ../pages/content-edit.php:115
-#: ../pages/content-setting.php:5 ../pages/content-show.php:52
+#: ../pages/content-add.php:92 ../pages/content-edit.php:116
+#: ../pages/content-setting.php:6 ../pages/content-show.php:53
 msgid "Content text slider on post"
 msgstr ""
 
-#: ../pages/content-add.php:93
+#: ../pages/content-add.php:94
 msgid "Add details"
 msgstr ""
 
-#: ../pages/content-add.php:95 ../pages/content-edit.php:119
-#: ../pages/content-show.php:67 ../pages/content-show.php:76
+#: ../pages/content-add.php:96 ../pages/content-edit.php:120
+#: ../pages/content-show.php:68 ../pages/content-show.php:77
 msgid "Title"
 msgstr ""
 
-#: ../pages/content-add.php:97 ../pages/content-edit.php:121
+#: ../pages/content-add.php:98 ../pages/content-edit.php:122
 msgid "Enter your title."
 msgstr ""
 
-#: ../pages/content-add.php:99 ../pages/content-edit.php:123
+#: ../pages/content-add.php:100 ../pages/content-edit.php:124
 msgid "Message/Content"
 msgstr ""
 
-#: ../pages/content-add.php:101 ../pages/content-edit.php:125
+#: ../pages/content-add.php:102 ../pages/content-edit.php:126
 msgid "Enter your message/content."
 msgstr ""
 
-#: ../pages/content-add.php:103 ../pages/content-edit.php:127
+#: ../pages/content-add.php:104 ../pages/content-edit.php:128
 msgid "Link"
 msgstr ""
 
-#: ../pages/content-add.php:105 ../pages/content-edit.php:129
+#: ../pages/content-add.php:106 ../pages/content-edit.php:130
 msgid "Enter your link."
 msgstr ""
 
-#: ../pages/content-add.php:107 ../pages/content-edit.php:131
+#: ../pages/content-add.php:108 ../pages/content-edit.php:132
 msgid "Display status"
 msgstr ""
 
-#: ../pages/content-add.php:113 ../pages/content-edit.php:137
+#: ../pages/content-add.php:114 ../pages/content-edit.php:138
 msgid "Do you want to show this message in the slider?"
 msgstr ""
 
-#: ../pages/content-add.php:115 ../pages/content-edit.php:139
+#: ../pages/content-add.php:116 ../pages/content-edit.php:140
 msgid "Group name"
 msgstr ""
 
-#: ../pages/content-add.php:142 ../pages/content-edit.php:174
+#: ../pages/content-add.php:143 ../pages/content-edit.php:175
 msgid "Order"
 msgstr ""
 
-#: ../pages/content-add.php:144 ../pages/content-edit.php:176
+#: ../pages/content-add.php:145 ../pages/content-edit.php:177
 msgid "Enter your display order, only number."
 msgstr ""
 
-#: ../pages/content-add.php:149
+#: ../pages/content-add.php:150
 msgid "Insert Details"
 msgstr ""
 
-#: ../pages/content-add.php:150 ../pages/content-edit.php:182
-#: ../pages/content-setting.php:104
+#: ../pages/content-add.php:151 ../pages/content-edit.php:183
+#: ../pages/content-setting.php:105
 msgid "Cancel"
 msgstr ""
 
-#: ../pages/content-add.php:151 ../pages/content-edit.php:183
-#: ../pages/content-setting.php:105 ../pages/content-show.php:119
+#: ../pages/content-add.php:152 ../pages/content-edit.php:184
+#: ../pages/content-setting.php:106 ../pages/content-show.php:120
 msgid "Help"
-msgstr ""
-
-#: ../pages/content-add.php:157 ../pages/content-edit.php:189
-#: ../pages/content-setting.php:111 ../pages/content-show.php:129
-msgid "Check official website for more information"
 msgstr ""
 
 #: ../pages/content-add.php:158 ../pages/content-edit.php:190
 #: ../pages/content-setting.php:112 ../pages/content-show.php:130
+msgid "Check official website for more information"
+msgstr ""
+
+#: ../pages/content-add.php:159 ../pages/content-edit.php:191
+#: ../pages/content-setting.php:113 ../pages/content-show.php:131
 msgid "click here"
 msgstr ""
 
-#: ../pages/content-edit.php:16 ../pages/content-show.php:22
+#: ../pages/content-edit.php:17 ../pages/content-show.php:23
 msgid "Oops, selected details doesnt exist"
 msgstr ""
 
-#: ../pages/content-edit.php:89
+#: ../pages/content-edit.php:90
 msgid "Details was successfully updated."
 msgstr ""
 
-#: ../pages/content-edit.php:117 ../pages/content-edit.php:181
+#: ../pages/content-edit.php:118 ../pages/content-edit.php:182
 msgid "Update Details"
 msgstr ""
 
-#: ../pages/content-setting.php:50
+#: ../pages/content-setting.php:51
 msgid "Details successfully updated."
 msgstr ""
 
-#: ../pages/content-setting.php:58
+#: ../pages/content-setting.php:59
 msgid "Setting 1"
 msgstr ""
 
-#: ../pages/content-setting.php:60 ../pages/content-setting.php:74
-#: ../pages/content-setting.php:88
+#: ../pages/content-setting.php:61 ../pages/content-setting.php:75
+#: ../pages/content-setting.php:89
 msgid "Record height in scroll"
 msgstr ""
 
-#: ../pages/content-setting.php:62 ../pages/content-setting.php:76
-#: ../pages/content-setting.php:90
+#: ../pages/content-setting.php:63 ../pages/content-setting.php:77
+#: ../pages/content-setting.php:91
 msgid "This is the height of the each record in the scroll."
 msgstr ""
 
-#: ../pages/content-setting.php:64 ../pages/content-setting.php:78
-#: ../pages/content-setting.php:92
+#: ../pages/content-setting.php:65 ../pages/content-setting.php:79
+#: ../pages/content-setting.php:93
 msgid "Display records"
 msgstr ""
 
-#: ../pages/content-setting.php:66 ../pages/content-setting.php:80
-#: ../pages/content-setting.php:94
+#: ../pages/content-setting.php:67 ../pages/content-setting.php:81
+#: ../pages/content-setting.php:95
 msgid "No of records you want to show in the screen at same time."
 msgstr ""
 
-#: ../pages/content-setting.php:68 ../pages/content-setting.php:82
-#: ../pages/content-setting.php:96
+#: ../pages/content-setting.php:69 ../pages/content-setting.php:83
+#: ../pages/content-setting.php:97
 msgid "Text Length"
 msgstr ""
 
-#: ../pages/content-setting.php:70 ../pages/content-setting.php:84
-#: ../pages/content-setting.php:98
+#: ../pages/content-setting.php:71 ../pages/content-setting.php:85
+#: ../pages/content-setting.php:99
 msgid "This is to maintain the record description length in the scroll."
 msgstr ""
 
-#: ../pages/content-setting.php:72
+#: ../pages/content-setting.php:73
 msgid "Setting 2"
 msgstr ""
 
-#: ../pages/content-setting.php:86
+#: ../pages/content-setting.php:87
 msgid "Setting 3"
 msgstr ""
 
-#: ../pages/content-setting.php:103
+#: ../pages/content-setting.php:104
 msgid "Submit"
 msgstr ""
 
-#: ../pages/content-show.php:40
+#: ../pages/content-show.php:41
 msgid "Selected record was successfully deleted."
 msgstr ""
 
-#: ../pages/content-show.php:53 ../pages/content-show.php:117
+#: ../pages/content-show.php:54 ../pages/content-show.php:118
 msgid "Add New"
 msgstr ""
 
-#: ../pages/content-show.php:66 ../pages/content-show.php:75
+#: ../pages/content-show.php:67 ../pages/content-show.php:76
 msgid "Id"
 msgstr ""
 
-#: ../pages/content-show.php:68 ../pages/content-show.php:77
+#: ../pages/content-show.php:69 ../pages/content-show.php:78
 msgid "Message"
 msgstr ""
 
-#: ../pages/content-show.php:69 ../pages/content-show.php:78
+#: ../pages/content-show.php:70 ../pages/content-show.php:79
 msgid "Group"
 msgstr ""
 
-#: ../pages/content-show.php:94
+#: ../pages/content-show.php:95
 msgid "Edit"
 msgstr ""
 
-#: ../pages/content-show.php:95
+#: ../pages/content-show.php:96
 msgid "Delete"
 msgstr ""
 
-#: ../pages/content-show.php:107
+#: ../pages/content-show.php:108
 msgid "No records available."
 msgstr ""
 
-#: ../pages/content-show.php:118
+#: ../pages/content-show.php:119
 msgid "Plugin Setting"
 msgstr ""
 
-#: ../pages/content-show.php:123
+#: ../pages/content-show.php:124
 msgid "Plugin configuration option"
 msgstr ""
 
-#: ../pages/content-show.php:125
+#: ../pages/content-show.php:126
 msgid "Add the plugin in the posts or pages using short code."
 msgstr ""
 
-#: ../pages/content-show.php:126
+#: ../pages/content-show.php:127
 msgid "Add directly in to the theme using PHP code."
 msgstr ""
