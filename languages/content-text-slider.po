@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Content text slider on post\n"
-"POT-Creation-Date: 2014-04-19 00:33+0800\n"
-"PO-Revision-Date: 2014-04-19 00:33+0800\n"
+"POT-Creation-Date: 2014-08-09 13:32+0800\n"
+"PO-Revision-Date: 2014-08-09 13:32+0800\n"
 "Last-Translator: \n"
 "Language-Team: www.gopiplus.com <www.gopiplus.com>\n"
 "MIME-Version: 1.0\n"
@@ -13,8 +13,8 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
+#: ../content-text-slider-on-post.php:331
 #: ../content-text-slider-on-post.php:332
-#: ../content-text-slider-on-post.php:333
 msgid "Content text slider"
 msgstr ""
 

@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-
 Plugin URI: http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
 Tags: Wordpress, Plugin, Content, Text, Slider
 Requires at least: 3.2
-Tested up to: 3.9
-Stable tag: 6.2
+Tested up to: 4.0
+Stable tag: 6.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -30,8 +30,6 @@ Use the given short code in the pages and posts.
 http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
 
 == Installation ==	
-
-**Installation Instruction & Configuration**  	
 
 **Method 1**	
 
@@ -61,10 +59,7 @@ Plugin configure [click here](http://www.gopiplus.com/work/2012/01/02/content-te
 
 5. Is possible to display (scroll) all the records instead of particular group name?
 
-Click the below link to see answer for all questions!			
 More info : [click to go](http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/)		
-
-http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/	
 
 == Screenshots ==
 
@@ -116,6 +111,10 @@ Plugin *.po file (content-text-slider.po) available in the languages folder.
 1. Tested up to 3.9
 2. Added little security feature.
 
+= 6.3 =
+
+1. Tested up to 4.0
+
 == Changelog ==
 
 = 1.0 =			
@@ -159,3 +158,7 @@ Plugin *.po file (content-text-slider.po) available in the languages folder.
 
 1. Tested up to 3.9
 2. Added little security feature.
+
+= 6.3 =
+
+1. Tested up to 4.0
