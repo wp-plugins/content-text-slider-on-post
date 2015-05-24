@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-
 Plugin URI: http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
 Tags: Wordpress, Plugin, Content, Text, Slider
 Requires at least: 3.2
-Tested up to: 4.1
-Stable tag: 6.5
+Tested up to: 4.2.2
+Stable tag: 6.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -125,6 +125,10 @@ Plugin *.po file (content-text-slider.po) available in the languages folder.
 
 1. Tested up to 4.1
 
+= 6.6 =
+
+1. Tested up to 4.2.2
+
 == Changelog ==
 
 = 1.0 =			
@@ -180,3 +184,7 @@ Plugin *.po file (content-text-slider.po) available in the languages folder.
 = 6.5 =
 
 1. Tested up to 4.1
+
+= 6.6 =
+
+1. Tested up to 4.2.2
