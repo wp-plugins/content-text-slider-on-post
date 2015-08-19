@@ -4,6 +4,7 @@
 if (isset($_POST['frm_ctsop_display']) && $_POST['frm_ctsop_display'] == 'yes')
 {
 	$did = isset($_GET['did']) ? $_GET['did'] : '0';
+	if(!is_numeric($did)) { die('<p>Are you sure you want to do this?</p>'); }
 	
 	$ctsop_success = '';
 	$ctsop_success_msg = FALSE;
@@ -63,8 +64,6 @@ if (isset($_POST['frm_ctsop_display']) && $_POST['frm_ctsop_display'] == 'yes')
       <table width="100%" class="widefat" id="straymanage">
         <thead>
           <tr>
-            <th class="check-column" scope="col" style="width:15px;"><input type="checkbox" name="ctsop_group_item[]" /></th>
-			<th scope="col" style="width:15px;"><?php _e('Id', 'content-text-slider'); ?></th>
 			<th scope="col" style="width:220px;"><?php _e('Title', 'content-text-slider'); ?></th>
             <th scope="col"><?php _e('Message', 'content-text-slider'); ?></th>
 			<th scope="col"><?php _e('Group', 'content-text-slider'); ?></th>
@@ -72,8 +71,6 @@ if (isset($_POST['frm_ctsop_display']) && $_POST['frm_ctsop_display'] == 'yes')
         </thead>
 		<tfoot>
           <tr>
-            <th class="check-column" scope="col" style="height:15px;"><input type="checkbox" name="ctsop_group_item[]" /></th>
-			<th scope="col" style="width:15px;"><?php _e('Id', 'content-text-slider'); ?></th>
 			<th scope="col" style="width:220px;"><?php _e('Title', 'content-text-slider'); ?></th>
             <th scope="col"><?php _e('Message', 'content-text-slider'); ?></th>
 			<th scope="col"><?php _e('Group', 'content-text-slider'); ?></th>
@@ -88,8 +85,6 @@ if (isset($_POST['frm_ctsop_display']) && $_POST['frm_ctsop_display'] == 'yes')
 				{
 					?>
 					<tr class="<?php if ($i&1) { echo'alternate'; } else { echo ''; }?>">
-					<td align="left"><input type="checkbox" value="<?php echo $data['ctsop_id']; ?>" name="ctsop_group_item[]"></td>
-					<td><?php echo stripslashes($data['ctsop_id']); ?></td>
 					<td><?php echo stripslashes($data['ctsop_title']); ?>
 					<div class="row-actions">
 					<span class="edit"><a title="Edit" href="<?php echo WP_ctsop_ADMIN_URL; ?>&amp;ac=edit&amp;did=<?php echo $data['ctsop_id']; ?>"><?php _e('Edit', 'content-text-slider'); ?></a> | </span>
@@ -105,7 +100,7 @@ if (isset($_POST['frm_ctsop_display']) && $_POST['frm_ctsop_display'] == 'yes')
 			}
 			else
 			{
-				?><tr><td colspan="5" align="center"><?php _e('No records available.', 'content-text-slider'); ?></td></tr><?php 
+				?><tr><td colspan="3" align="center"><?php _e('No records available.', 'content-text-slider'); ?></td></tr><?php 
 			}
 			?>
 		</tbody>

@@ -4,7 +4,7 @@ Plugin Name: Content text slider on post
 Plugin URI: http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
 Description: Content text slider on post is a WordPress plugin from gopiplus.com website. We can use this plugin to scroll the content vertically in the posts and pages. We have option to enter content title, description and link for the content. All entered details scroll vertically into the posts and pages.
 Author: Gopi Ramasamy
-Version: 6.6
+Version: 6.7
 Author URI: http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
 Donate link: http://www.gopiplus.com/work/2012/01/02/content-text-slider-on-post-wordpress-plugin/
 Tags: Wordpress, plugin, Content, Text, Slider
